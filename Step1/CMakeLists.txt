@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-# 指定C++版本, CMAKE_CXX_STANDARD_REQUIRED确保使用的是C++标准
+# 指定C++版本, CMAKE_CXX_STANDARD_REQUIRED确保使用的是指定的C++标准
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
@@ -14,10 +14,9 @@ project(Step1 VERSION 1.2)
 # 第二个参数是输出的头文件名称，之后cpp文件中可以通过这个名称来 include : #include "step1_config.h"
 configure_file(config/step1_config.h.in step1_config.h)
 
-# 添加自定义的头文件路径,将指定目录添加到编译器的头文件搜索路径之下
+# 添加头文件搜索路径,  step1_config.h 是动态生成的   所以在 PROJECT_BINARY_DIR
 include_directories(
         "${PROJECT_BINARY_DIR}"
-        include/
 )
 
 # 从c++源文件中添加可执行文件，命名为step1，源文件为step1.cpp

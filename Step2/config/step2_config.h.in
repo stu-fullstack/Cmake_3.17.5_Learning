@@ -1,0 +1,2 @@
+// Step2 项目的配置文件
+#cmakedefine USE_MYMATH
